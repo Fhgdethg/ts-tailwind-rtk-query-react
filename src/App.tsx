@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useAppSelector } from "./hooks/appHooks";
+import { Route, Routes } from "react-router";
+import FullDate from "./components/FullDate/FullDate";
+import Header from "./components/general/HeaderComponents/Header";
+import Todo from "./components/Todo/Todo";
 
 function App() {
+  const mode = useAppSelector(state => state.settingThem.themStatus)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${mode}`}>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Todo />} />
+        <Route path="/date" element={<FullDate />} />
+        <Route path="*" element={<Todo />} />
+      </Routes>
     </div>
   );
 }

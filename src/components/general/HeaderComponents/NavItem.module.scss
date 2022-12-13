@@ -1,0 +1,7 @@
+.link {
+  @apply text-elementoryText text-slate-50;
+
+  &:not(:first-child) {
+    @apply ml-[20px];
+  }
+}

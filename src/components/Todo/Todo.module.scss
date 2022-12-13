@@ -1,0 +1,7 @@
+.todo {
+  @apply py-16 bg-white min-h-screen;
+
+  & > div {
+    @apply flex flex-col gap-3;
+  }
+}
